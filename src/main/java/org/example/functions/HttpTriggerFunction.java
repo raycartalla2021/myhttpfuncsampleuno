@@ -38,7 +38,6 @@ public class HttpTriggerFunction {
 
         /*String dbConnString = System.getenv("SQLCONNSTR_myDBConnString");
         System.out.println("dbConnString: " + dbConnString);*/
-
         List<Course> courses = new ArrayList<>();
 
 //        String dbConnString = "jdbc:sqlserver://mydbserveruno.database.windows.net:1433;database=mydbnameuno;user=raycartalla@mydbserveruno;password=c36560RL;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;";
