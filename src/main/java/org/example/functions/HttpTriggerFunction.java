@@ -42,7 +42,7 @@ public class HttpTriggerFunction {
         List<Course> courses = new ArrayList<>();
 
 //        String dbConnString = "jdbc:sqlserver://mydbserveruno.database.windows.net:1433;database=mydbnameuno;user=raycartalla@mydbserveruno;password=c36560RL;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;";
-        String dbConnString = System.getenv("SQLCONNSTR_change");
+        String dbConnString = System.getenv("SQLCONNSTR_MyDBConnString");
         try {
             Connection connection = DriverManager.getConnection(dbConnString);
             context.getLogger().info("Database connection test: " + connection.getCatalog());
@@ -103,7 +103,7 @@ public class HttpTriggerFunction {
     private List<Course> readData(String courseId, Connection connection, ExecutionContext context) throws SQLException {
         List<Course> courses = new ArrayList<>();
 
-        PreparedStatement readStatement = null;
+        PreparedStatement readStatement;
         if (!StringUtils.isEmpty(courseId)) {
             readStatement = connection.prepareStatement("SELECT * FROM course where courseid = ?;");
             readStatement.setLong(1, new Long(courseId));
